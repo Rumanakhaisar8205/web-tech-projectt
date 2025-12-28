@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 160 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 160 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 10% 15%;
+
+    --primary: 142 71% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 142 40% 95%;
+    --secondary-foreground: 142 71% 35%;
+
+    --muted: 160 10% 95%;
+    --muted-foreground: 160 10% 45%;
+
+    --accent: 142 50% 90%;
+    --accent-foreground: 142 71% 30%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 160 10% 90%;
+    --input: 160 10% 90%;
+    --ring: 142 71% 45%;
+
+    --radius: 1rem;
+
+    /* Custom nutrition colors */
+    --calories: 24 95% 53%;
+    --protein: 262 83% 58%;
+    --carbs: 199 89% 48%;
+    --fat: 45 93% 47%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(142 71% 45%) 0%, hsl(160 60% 40%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(142 30% 98%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(142 50% 95%) 0%, hsl(0 0% 98%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(160 10% 15% / 0.08);
+    --shadow-md: 0 8px 24px -4px hsl(160 10% 15% / 0.12);
+    --shadow-lg: 0 16px 48px -8px hsl(160 10% 15% / 0.15);
+    --shadow-glow: 0 0 32px hsl(142 71% 45% / 0.25);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 160 15% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 160 15% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 160 15% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 142 71% 50%;
+    --primary-foreground: 160 15% 8%;
+
+    --secondary: 160 15% 18%;
+    --secondary-foreground: 142 50% 70%;
+
+    --muted: 160 15% 18%;
+    --muted-foreground: 160 10% 60%;
+
+    --accent: 160 15% 22%;
+    --accent-foreground: 142 50% 70%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 160 15% 20%;
+    --input: 160 15% 20%;
+    --ring: 142 71% 50%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Custom scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Camera viewfinder overlay */
+  .camera-overlay {
+    background: linear-gradient(
+      to bottom,
+      hsl(0 0% 0% / 0.3) 0%,
+      transparent 20%,
+      transparent 80%,
+      hsl(0 0% 0% / 0.5) 100%
+    );
+  }
+
+  /* Nutrition badge colors */
+  .bg-calories {
+    background-color: hsl(var(--calories));
+  }
+
+  .bg-protein {
+    background-color: hsl(var(--protein));
+  }
+
+  .bg-carbs {
+    background-color: hsl(var(--carbs));
+  }
+
+  .bg-fat {
+    background-color: hsl(var(--fat));
+  }
+
+  .text-calories {
+    color: hsl(var(--calories));
+  }
+
+  .text-protein {
+    color: hsl(var(--protein));
+  }
+
+  .text-carbs {
+    color: hsl(var(--carbs));
+  }
+
+  .text-fat {
+    color: hsl(var(--fat));
+  }
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes success-check {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-success-check {
+  animation: success-check 0.5s ease-out forwards;
+}
+
+/* Stagger animations */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }

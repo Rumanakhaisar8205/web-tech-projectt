@@ -1,0 +1,10 @@
+project_id = "qmxrgtfgbydwhzibpwwv"
+
+[functions.recognize]
+verify_jwt = false
+
+[functions.nutrition]
+verify_jwt = false
+
+[functions.logMeal]
+verify_jwt = false

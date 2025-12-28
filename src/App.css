@@ -1,0 +1,48 @@
+/* App-level styles - most styles are in index.css design system */
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
+}
+
+/* Safe area insets for mobile devices */
+@supports (padding: max(0px)) {
+  .safe-area-inset-top {
+    padding-top: max(env(safe-area-inset-top), 0px);
+  }
+  
+  .safe-area-inset-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 0px);
+  }
+}
+
+/* Prevent overscroll bounce on iOS */
+html {
+  overscroll-behavior: none;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent text selection on interactive elements */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* Camera video element */
+video {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+/* Fix for iOS input zoom */
+@media screen and (max-width: 767px) {
+  input[type="number"],
+  input[type="text"],
+  select {
+    font-size: 16px !important;
+  }
+}
